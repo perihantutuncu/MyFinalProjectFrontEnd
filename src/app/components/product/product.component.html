@@ -3,21 +3,30 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
+<div class="mb-3">
+    <label for="filterText" class="form-label">Ürün Ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Aradığınız ürünü yazınız... ">
+</div>
+
+<div *ngIf="filterText.length>2" class="alert alert-success">{{filterText}} aradınız</div>
+
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Ürün Adı</th>
-            <th>Kategori</th>
-            <th>Fiyat</th>
-            <th>Stok Adedi</th>
+            <th class="text-left">Id</th>
+            <th class="text-left">Ürün Adı</th>
+            <th class="text-center">Kategori</th>
+            <th class="text-center">Fiyat</th>
+            <th class="text-center">Kdv'li Fiyat</th>
+            <th class="text-center">Stok Adedi</th>
         </tr>
     </thead>
     <tr *ngFor="let product of products">
-        <td>{{product.productId}}</td>
-        <td>{{product.productName}}</td>
-        <td>{{product.categoryId}}</td>
-        <td>{{product.unitPrice}}</td>
-        <td>{{product.unitsInStock}}</td>
+        <td class="text-left">{{ product.productId }}</td>
+        <td class="text-left">{{ product.productName |uppercase }}</td>
+        <td class="text-center">{{ product.categoryId }}</td>
+        <td class="text-center">{{ product.unitPrice |currency }} </td>
+        <td class="text-center">{{ product.unitPrice |vatAdded:18 | currency }}</td>
+        <td class="text-center">{{ product.unitsInStock }}</td>
     </tr>
 </table>

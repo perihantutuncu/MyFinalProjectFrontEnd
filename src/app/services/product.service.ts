@@ -4,9 +4,7 @@ import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Product } from '../models/product';
 
-@Injectable({
-	providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class ProductService {
 
 	apiUrl = "https://localhost:44358/api/"

@@ -4,9 +4,7 @@ import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Category } from '../models/category';
 
-@Injectable({
-	providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class CategoryService {
 
 	apiUrl = "https://localhost:44358/api/categories/getall"
