@@ -19,14 +19,18 @@
             <th class="text-center">Fiyat</th>
             <th class="text-center">Kdv'li Fiyat</th>
             <th class="text-center">Stok Adedi</th>
+            <th></th>
         </tr>
     </thead>
-    <tr *ngFor="let product of products | filterPipe:filterText">
-        <td class="text-left">{{ product.productId }}</td>
-        <td class="text-left">{{ product.productName |uppercase }}</td>
-        <td class="text-center">{{ product.categoryId }}</td>
-        <td class="text-center">{{ product.unitPrice |currency }} </td>
-        <td class="text-center">{{ product.unitPrice |vatAdded:18 | currency }}</td>
-        <td class="text-center">{{ product.unitsInStock }}</td>
-    </tr>
+    <tbody>
+        <tr *ngFor="let product of products | filterPipe:filterText">
+            <td class="text-left">{{ product.productId }}</td>
+            <td class="text-left">{{ product.productName |uppercase }}</td>
+            <td class="text-center">{{ product.categoryId }}</td>
+            <td class="text-center">{{ product.unitPrice |currency }} </td>
+            <td class="text-center">{{ product.unitPrice |vatAdded:18 | currency }}</td>
+            <td class="text-center">{{ product.unitsInStock }}</td>
+            <td> <button (click)="addToCart(product)" type="button" class="btn btn-success btn-xs" > Sepete Ekle </button> </td>
+        </tr>
+    </tbody>
 </table>
