@@ -21,7 +21,7 @@
             <th class="text-center">Stok Adedi</th>
         </tr>
     </thead>
-    <tr *ngFor="let product of products">
+    <tr *ngFor="let product of products | filterPipe:filterText">
         <td class="text-left">{{ product.productId }}</td>
         <td class="text-left">{{ product.productName |uppercase }}</td>
         <td class="text-center">{{ product.categoryId }}</td>
